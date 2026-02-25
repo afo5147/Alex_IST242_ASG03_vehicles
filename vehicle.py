@@ -35,4 +35,8 @@ class Vehicle(ABC):
     def mpg(self): # -> float:
         return self.__mpg
     
-
+    #concrete method
+    def how_far_with(self,
+                     num_of_gallons: float) -> float:
+        return self.mpg * num_of_gallons
+    
