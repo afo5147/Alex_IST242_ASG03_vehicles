@@ -40,3 +40,8 @@ class Vehicle(ABC):
                      num_of_gallons: float) -> float:
         return self.mpg * num_of_gallons
     
+    #abstract method
+    def num_of_wheels(self) -> int:
+        ... #'...' is and "idk" placeholder for the person to put information into.
+    
+    
