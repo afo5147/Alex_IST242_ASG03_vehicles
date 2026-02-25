@@ -17,3 +17,13 @@ class Sedan(Vehicle):
                  model: AutoModel,
                  mpg: float):
         super().__init__(manufacturer, model, mpg)
+
+    # Specify the abstract method
+    def num_of_wheels(self) -> int:
+        return 4
+    
+    # Print Sedan information
+    def __str__(self) -> str:
+        return (
+            f"({self.manufacturer}) ({self.model}), mpg: {self._mpg:.2f}"
+        )
