@@ -7,15 +7,18 @@ class Manufacturer:
     # Private variables have an __ before it and Public variables do not
 
     def __init__(self, name: str, country: str):
-        self.__name = name
-        self.__country = country
+        self._name = name
+        self._country = country
 
     # Properties - This is for the different properties that can be public or private and how it will be presented
 
     @property
     def get_name(self): # type: () -> str
-        return self.__name
+        return self._name
         
     @property
     def get_country(self):
-        return self.__country
+        return self._country
+    
+    def __str__(self) -> str:
+        return f"{self._name} {self._country}"
