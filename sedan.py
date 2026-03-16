@@ -11,7 +11,7 @@ class Sedan(Vehicle):
     This represents a sedan vehicle.
     '''
 
-    # construcotor
+    # constructor
     def __init__(self,
                  manufacturer: Manufacturer,
                  model: AutoModel,
