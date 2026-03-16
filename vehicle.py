@@ -4,44 +4,47 @@ This file will be for the vehichles in the garage.
 
 from abc import ABC, abstractmethod
 # this is only for sorting purposes. -> from functools import total_ordering
-
+from functools import total_ordering
 from manufacturer import Manufacturer
-# from auto_model import AutoModel
+from auto_model import AutoModel
 
+@total_ordering
 class Vehicle(ABC):
     """
     This is the abstract base class (ABC) for all vehicles
     """
     #constructor
 
-    # need to fix the model part once it is done.
     def __init__(self,
                  manufacturer: Manufacturer,
-                 #model: Automodel,
+                 model: AutoModel,
                  mpg: float):
-        self.__manufacturer = manufacturer
-        #self.__model = model
-        self.__mpg = mpg
+        self._manufacturer = manufacturer
+        self._model = model
+        self._mpg = mpg
 
     @property
     def manufacturer(self) -> Manufacturer:
-        return self.__manufacturer
+        return self._manufacturer
     
     @property
-    def model(self): # -> AutoModel:
-        return self.__model
+    def model(self) -> AutoModel:
+        return self._model
     
     @property
-    def mpg(self): # -> float:
-        return self.__mpg
+    def mpg(self) -> float:
+        return self._mpg
     
+    @property
+    def release_year(self) -> int:
+        return self._model.get_first_year #This is going to show the olldest year the car was released.
+
     #concrete method
-    def how_far_with(self,
-                     num_of_gallons: float) -> float:
-        return self.mpg * num_of_gallons
+    def how_far_with(self, num_of_gallons: int) -> float:
+        return self._mpg * num_of_gallons
     
     #abstract method
     def num_of_wheels(self) -> int:
-        ... #'...' is and "idk" placeholder for the person to put information into.
+        ... #'...' is and "idk" placeholder for the person to put information into./ This will return teh number of wheels the vehicle has.
     
     
