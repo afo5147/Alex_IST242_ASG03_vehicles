@@ -47,4 +47,15 @@ class Vehicle(ABC):
     def num_of_wheels(self) -> int:
         ... #'...' is and "idk" placeholder for the person to put information into./ This will return teh number of wheels the vehicle has.
     
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, Vehicle):
+            return NotImplemented
+        return self.release_year == other.release_year
+
+    def __lt__(self, other) -> bool:
+        if not isinstance(other, Vehicle):
+            return NotImplemented
+        return self.release_year < other.release_year
     
+    def __hash__(self) -> int:
+        return hash(self.release_year)
